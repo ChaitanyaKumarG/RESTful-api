@@ -1,0 +1,14 @@
+{
+  "name": "api_live",
+  "version": "1.0.0",
+  "description": "API creaiton nd putting into live",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ChaitanyaKumarG",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
