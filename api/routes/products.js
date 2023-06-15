@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router();
+const mongoose = require('mongoose')
+const Product = require('../modals/Products')
 
 router.get('/',(req,res,next)=>{
     res.status(200).json({
@@ -8,13 +10,22 @@ router.get('/',(req,res,next)=>{
 })
 
 router.post('/',(req,res,next)=>{
-    const product = {
+
+
+    const product = new Product({
         name: req.body.name,
-        price: req.body.price
-    } 
+        price: req.body.price,
+        expirydate: req.body.expirydate
+    })
+    product.save().then((result)=>{
+    console.log(result)
+    }).catch((err)=> console.log(err))
+
+
     res.status(201).json({  
-        message: "handling post in product",
-        createProduct : product,
+        message: "handling post request in product",
+        msg: "product created",
+        createdProduct : product,
        
     })
 })

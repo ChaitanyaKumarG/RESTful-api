@@ -3,6 +3,13 @@ const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const mongoose = require('mongoose')
+
+
+mongoose.connect("mongodb+srv://chaitanya:chaitu9075@cp-med-store.lvufinl.mongodb.net/medicines?retryWrites=true&w=majority").then(
+    ()=>
+    console.log('Connected to db')
+).catch(()=>console.log('Not connected to db'))
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
